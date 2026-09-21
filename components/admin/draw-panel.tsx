@@ -25,17 +25,13 @@ export default function DrawPanel({ draws }: Props) {
     if (!selectedDraw) { setError('Select a draw first.'); return }
     setRunning(true); setError(null); setResult(null)
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/draw-engine`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
-          },
-          body: JSON.stringify({ draw_id: selectedDraw, mode }),
-        }
-      )
+      const res = await fetch('/api/draw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ draw_id: selectedDraw, mode }),
+      })
       const json = await res.json()
       if (!res.ok) throw new Error(json.error ?? 'Engine error')
       setResult(JSON.stringify(json, null, 2))

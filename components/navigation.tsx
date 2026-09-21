@@ -12,14 +12,29 @@ export default function Navigation() {
   const supabase = createClient()
 
   const [user, setUser] = useState<User | null>(null)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   // Track auth state changes
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setUser(data.user))
+    const fetchRole = async (userId: string) => {
+      const { data } = await supabase.from('profiles').select('user_role').eq('id', userId).single()
+      setIsAdmin(data?.user_role === 'admin')
+    }
+
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user)
+      if (data.user) fetchRole(data.user.id)
+    })
+    
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)
+      if (session?.user) {
+        fetchRole(session.user.id)
+      } else {
+        setIsAdmin(false)
+      }
     })
     return () => subscription.unsubscribe()
   }, [])
@@ -41,6 +56,7 @@ export default function Navigation() {
     { href: '/',        label: 'Home' },
     { href: '/donate',  label: 'Donate' },
     { href: '/dashboard', label: 'Dashboard', auth: true },
+    ...(isAdmin ? [{ href: '/admin', label: 'Admin Panel', auth: true }] : []),
   ]
 
   return (

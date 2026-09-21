@@ -21,9 +21,22 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true)
     setError(null)
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) { setError(error.message); setLoading(false); return }
-    router.push('/dashboard')
+    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({ email, password })
+    if (authError) { setError(authError.message); setLoading(false); return }
+    
+    // Check role to redirect appropriately
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('user_role')
+      .eq('id', authData.user.id)
+      .single()
+
+    if (profile?.user_role === 'admin') {
+      router.push('/admin')
+    } else {
+      router.push('/dashboard')
+    }
+    
     router.refresh()
   }
 

@@ -36,7 +36,7 @@ export default async function AdminPage() {
     supabase.from('profiles')
       .select('*, subscription:subscriptions(status, plan_type, current_period_end)')
       .order('created_at', { ascending: false }).limit(50),
-    supabase.from('donations').select('amount_minor').eq('status', 'succeeded'),
+    supabase.from('donations').select('amount_minor').eq('status', 'completed'),
   ])
 
   const totalDonated = (donations ?? []).reduce((s, d) => s + (d.amount_minor ?? 0), 0)
