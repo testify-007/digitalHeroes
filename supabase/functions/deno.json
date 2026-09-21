@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.window"],
+    "strict": true
+  },
+  "imports": {
+    "https://deno.land/std@0.168.0/": "https://deno.land/std@0.168.0/",
+    "https://esm.sh/": "https://esm.sh/"
+  },
+  "tasks": {
+    "serve": "supabase functions serve",
+    "deploy": "supabase functions deploy"
+  }
+}

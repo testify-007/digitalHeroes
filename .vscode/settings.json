@@ -1,0 +1,40 @@
+{
+  // ── Deno (supabase/functions only) ─────────────────────────────
+  "deno.enable": false,
+  "deno.enablePaths": [
+    "supabase/functions"
+  ],
+  "deno.disablePaths": [
+    "app",
+    "lib",
+    "types",
+    "proxy.ts"
+  ],
+  "deno.lint": true,
+  "deno.unstable": false,
+  "deno.importMap": "./supabase/functions/deno.json",
+
+  // ── TypeScript ─────────────────────────────────────────────────
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // ── CSS / Tailwind ─────────────────────────────────────────────
+  // Suppress "Unknown at-rule" squiggles for @tailwind, @apply, @layer.
+  // These are valid Tailwind directives — not standard CSS — so the
+  // built-in CSS language server flags them incorrectly.
+  "css.lint.unknownAtRules": "ignore",
+
+  // Let the Tailwind CSS IntelliSense extension handle .css files
+  // so you get class autocomplete inside @apply rules.
+  "[css]": {
+    "editor.defaultFormatter": "bradlc.vscode-tailwindcss",
+    "editor.suggest.insertMode": "replace"
+  },
+
+  // ── General ────────────────────────────────────────────────────
+  "editor.formatOnSave": true
+}
+
