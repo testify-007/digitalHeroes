@@ -82,7 +82,7 @@ export async function POST(request: Request) {
   }
 }
 
-async function executeDrawEngine(supabase: ReturnType<typeof createAdminClient>, drawId: string, mode: DrawMode) {
+async function executeDrawEngine(supabase: any, drawId: string, mode: DrawMode) {
   const draw = await fetchDraw(supabase, drawId)
 
   if (mode === "publish" && draw.status === "published") {
@@ -116,7 +116,7 @@ async function executeDrawEngine(supabase: ReturnType<typeof createAdminClient>,
       .gte("current_period_end", monthStart.toISOString())
 
     if (subs && subs.length > 0) {
-      const mockEntries = subs.map(sub => ({
+      const mockEntries = subs.map((sub: any) => ({
         draw_id: drawId,
         user_id: sub.user_id,
         entry_numbers: generateWinningNumbers(NUMBER_POOL_MIN, NUMBER_POOL_MAX, NUMBERS_PER_ENTRY)
@@ -169,7 +169,7 @@ async function executeDrawEngine(supabase: ReturnType<typeof createAdminClient>,
   if (allWinnerIds.length > 0) {
     const { data: profiles } = await supabase.from('profiles').select('id, full_name, email').in('id', allWinnerIds)
     if (profiles) {
-      profiles.forEach(p => {
+      profiles.forEach((p: any) => {
         profileMap[p.id] = p.full_name || p.email || 'Unknown User'
       })
     }
@@ -217,13 +217,13 @@ async function executeDrawEngine(supabase: ReturnType<typeof createAdminClient>,
   }
 }
 
-async function fetchDraw(supabase: ReturnType<typeof createAdminClient>, drawId: string) {
+async function fetchDraw(supabase: any, drawId: string) {
   const { data, error } = await supabase.from("draws").select("id, draw_month, status, draw_type, admin_notes").eq("id", drawId).single()
   if (error || !data) throw new Error(`Draw not found: ${drawId} — ${error?.message}`)
   return data
 }
 
-async function calculatePrizePool(supabase: ReturnType<typeof createAdminClient>, drawMonth: string) {
+async function calculatePrizePool(supabase: any, drawMonth: string) {
   const monthStart = new Date(drawMonth)
   const monthEnd = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0, 23, 59, 59, 999)
 
@@ -236,15 +236,15 @@ async function calculatePrizePool(supabase: ReturnType<typeof createAdminClient>
 
   if (error) throw new Error(`Failed to query subscriptions: ${error.message}`)
 
-  const monthlyCount = subs.filter((s) => s.plan_type === "monthly").length
-  const yearlyCount = subs.filter((s) => s.plan_type === "yearly").length
+  const monthlyCount = subs.filter((s: any) => s.plan_type === "monthly").length
+  const yearlyCount = subs.filter((s: any) => s.plan_type === "yearly").length
   const yearlyMonthlyShare = Math.floor(YEARLY_PLAN_AMOUNT / 12)
   const totalPoolMinor = monthlyCount * MONTHLY_PLAN_AMOUNT + yearlyCount * yearlyMonthlyShare
 
   return { totalPoolMinor, activeSubscriptionCount: subs.length }
 }
 
-async function resolvePreviousRollover(supabase: ReturnType<typeof createAdminClient>, drawMonth: string): Promise<number> {
+async function resolvePreviousRollover(supabase: any, drawMonth: string): Promise<number> {
   const thisMonth = new Date(drawMonth)
   const prevMonthDate = new Date(thisMonth.getFullYear(), thisMonth.getMonth() - 1, 1)
   const prevMonthStr = prevMonthDate.toISOString().split("T")[0]
@@ -260,7 +260,7 @@ async function resolvePreviousRollover(supabase: ReturnType<typeof createAdminCl
   return prevPool.tier_5match_rollover ? prevPool.tier_5match_amount : 0
 }
 
-async function fetchDrawEntries(supabase: ReturnType<typeof createAdminClient>, drawId: string) {
+async function fetchDrawEntries(supabase: any, drawId: string) {
   const { data, error } = await supabase.from("draw_entries").select("id, user_id, entry_numbers").eq("draw_id", drawId)
   if (error) throw new Error(`Failed to fetch draw entries: ${error.message}`)
   return data as { id: string; user_id: string; entry_numbers: number[] }[]
@@ -293,12 +293,12 @@ function scoreEntries(entries: { id: string; user_id: string; entry_numbers: num
   return winners
 }
 
-async function upsertPrizePool(supabase: ReturnType<typeof createAdminClient>, pool: Record<string, unknown>) {
+async function upsertPrizePool(supabase: any, pool: Record<string, unknown>) {
   const { error } = await supabase.from("prize_pools").upsert(pool, { onConflict: "draw_id", ignoreDuplicates: false })
   if (error) throw new Error(`Failed to upsert prize pool: ${error.message}`)
 }
 
-async function persistWinners(supabase: ReturnType<typeof createAdminClient>, drawId: string, winners: (WinnerCandidate & { prize_amount_minor: number })[]) {
+async function persistWinners(supabase: any, drawId: string, winners: (WinnerCandidate & { prize_amount_minor: number })[]) {
   const { error: deleteError } = await supabase.from("draw_winners").delete().eq("draw_id", drawId)
   if (deleteError) throw new Error(`Failed to clear previous winners for draw ${drawId}: ${deleteError.message}`)
 
@@ -317,7 +317,7 @@ async function persistWinners(supabase: ReturnType<typeof createAdminClient>, dr
   if (error) throw new Error(`Failed to insert winners: ${error.message}`)
 }
 
-async function updateDrawStatus(supabase: ReturnType<typeof createAdminClient>, drawId: string, status: "simulated" | "published", adminNote: string) {
+async function updateDrawStatus(supabase: any, drawId: string, status: "simulated" | "published", adminNote: string) {
   const { data: existing, error: fetchError } = await supabase.from("draws").select("admin_notes").eq("id", drawId).single()
   if (fetchError) throw new Error(`Failed to read existing admin_notes for draw ${drawId}: ${fetchError.message}`)
 
