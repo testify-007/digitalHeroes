@@ -4,7 +4,7 @@ import { useRef, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 interface Draw    { id: string; draw_month: string; status: string; prize_pools: any }
-interface Winner  { id: string; winner_tier: string; prize_amount_minor: number; payout_status: string; proof_status: string; proof_upload_url: string | null; draw: any }
+interface Winner  { id: string; tier: string; prize_amount_minor: number; payout_status: string; proof_status: string; proof_upload_url: string | null; draw: any }
 interface Props   { draws: Draw[]; winnings: Winner[]; userId: string }
 
 const TIER_LABELS: Record<string, string> = {
@@ -86,7 +86,7 @@ export default function WinningsPanel({ draws, winnings, userId }: Props) {
               <div key={w.id} className="p-4 rounded-xl bg-prize-500/10 border border-prize-500/20">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="font-bold text-prize-300">{TIER_LABELS[w.winner_tier] ?? w.winner_tier}</p>
+                    <p className="font-bold text-prize-300">{TIER_LABELS[w.tier] ?? w.tier}</p>
                     <p className="text-sm text-slate-400">{w.draw ? fmt(w.draw.draw_month) : ''}</p>
                   </div>
                   <p className="text-xl font-black text-prize-400">

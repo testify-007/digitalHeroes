@@ -53,7 +53,7 @@ export default function WinnersPanel({ winners }: Props) {
                     {w.profile?.full_name ?? w.profile?.email ?? 'Unknown user'}
                   </p>
                   <p className="text-xs text-slate-500">
-                    {w.draw ? fmt(w.draw.draw_month) : ''} · {TIER_LABELS[w.winner_tier] ?? w.winner_tier}
+                    {w.draw ? fmt(w.draw.draw_month) : ''} · {TIER_LABELS[w.tier] ?? w.tier}
                   </p>
                 </div>
                 <p className="text-xl font-black text-prize-400">
