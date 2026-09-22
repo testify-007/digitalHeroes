@@ -11,24 +11,40 @@ const config: Config = {
       colors: {
         // Brand palette — charity-first, no golf clichés
         brand: {
-          50:  '#eef2ff',
-          100: '#e0e7ff',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          900: '#312e81',
+          50:  '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
         },
         prize: {
+          50:  '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
           300: '#fcd34d',
           400: '#fbbf24',
           500: '#f59e0b',
           600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
         },
         impact: {
+          50:  '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
           400: '#34d399',
           500: '#10b981',
           600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
         },
       },
       // Extend opacity scale to include non-standard values used in @apply
@@ -68,14 +84,14 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'hero-mesh':
-          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99,102,241,0.3) 0%, transparent 70%),' +
-          'radial-gradient(ellipse 60% 50% at 80% 80%, rgba(16,185,129,0.12) 0%, transparent 70%)',
+          'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(16,185,129,0.15) 0%, transparent 70%),' +
+          'radial-gradient(ellipse 60% 50% at 80% 80%, rgba(5,150,105,0.1) 0%, transparent 70%)',
       },
       boxShadow: {
-        'glow-indigo': '0 0 40px -10px rgba(99,102,241,0.6)',
-        'glow-amber':  '0 0 40px -10px rgba(245,158,11,0.5)',
-        'glow-emerald':'0 0 40px -10px rgba(16,185,129,0.4)',
-        'card':        '0 4px 24px rgba(0,0,0,0.4)',
+        'glow-brand': '0 0 40px -10px rgba(16,185,129,0.5)',
+        'glow-amber': '0 0 40px -10px rgba(245,158,11,0.5)',
+        'glow-impact':'0 0 40px -10px rgba(16,185,129,0.4)',
+        'card':       '0 10px 30px -10px rgba(0,0,0,0.08)',
       },
     },
   },

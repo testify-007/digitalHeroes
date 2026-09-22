@@ -47,7 +47,7 @@ export default function WinningsPanel({ draws, winnings, userId }: Props) {
 
   return (
     <div className="glass p-6">
-      <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+      <h2 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-prize-500" />
         Draws & Winnings
       </h2>
@@ -55,16 +55,16 @@ export default function WinningsPanel({ draws, winnings, userId }: Props) {
       {/* Upcoming / recent draws */}
       {draws.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-3">Recent Draws</h3>
+          <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-widest mb-3">Recent Draws</h3>
           <div className="space-y-2">
             {draws.map(d => {
               const pool = d.prize_pools
               return (
-                <div key={d.id} className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/8">
+                <div key={d.id} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <div>
-                    <p className="text-sm font-medium text-white">{fmt(d.draw_month)}</p>
+                    <p className="text-sm font-medium text-slate-900">{fmt(d.draw_month)}</p>
                     {pool?.total_pool_minor && (
-                      <p className="text-xs text-slate-500">Pool: £{(pool.total_pool_minor / 100).toFixed(2)}</p>
+                      <p className="text-xs text-slate-600">Pool: £{(pool.total_pool_minor / 100).toFixed(2)}</p>
                     )}
                   </div>
                   <span className={d.status === 'published' ? 'badge-active' : 'badge-pending'}>
@@ -80,16 +80,16 @@ export default function WinningsPanel({ draws, winnings, userId }: Props) {
       {/* Winnings */}
       {winnings.length > 0 ? (
         <div>
-          <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-3">Your Winnings</h3>
+          <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-widest mb-3">Your Winnings</h3>
           <div className="space-y-4">
             {winnings.map(w => (
-              <div key={w.id} className="p-4 rounded-xl bg-prize-500/10 border border-prize-500/20">
+              <div key={w.id} className="p-4 rounded-xl bg-prize-50 border border-prize-200">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="font-bold text-prize-300">{TIER_LABELS[w.tier] ?? w.tier}</p>
-                    <p className="text-sm text-slate-400">{w.draw ? fmt(w.draw.draw_month) : ''}</p>
+                    <p className="font-bold text-prize-600">{TIER_LABELS[w.tier] ?? w.tier}</p>
+                    <p className="text-sm text-slate-600">{w.draw ? fmt(w.draw.draw_month) : ''}</p>
                   </div>
-                  <p className="text-xl font-black text-prize-400">
+                  <p className="text-xl font-black text-prize-600">
                     £{(w.prize_amount_minor / 100).toFixed(2)}
                   </p>
                 </div>
@@ -137,8 +137,8 @@ export default function WinningsPanel({ draws, winnings, userId }: Props) {
           </div>
         </div>
       ) : (
-        <div className="text-center py-6 text-slate-500">
-          <svg className="w-10 h-10 mx-auto mb-3 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="text-center py-6 text-slate-600">
+          <svg className="w-10 h-10 mx-auto mb-3 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
           </svg>

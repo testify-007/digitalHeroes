@@ -32,26 +32,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-[#020617] text-white antialiased">
+      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
         <Navigation />
         <main>{children}</main>
-        <footer className="border-t border-white/10 mt-24 py-12">
+        <footer className="border-t border-slate-200 mt-24 py-12">
           <div className="section">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-3">
                 {/* Logo mark */}
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-purple-600
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-impact-500
                                 flex items-center justify-center text-white font-black text-sm">
                   DH
                 </div>
-                <span className="font-bold text-white">Digital Heroes</span>
+                <span className="font-bold text-slate-900">Digital Heroes</span>
               </div>
-              <nav className="flex gap-6 text-sm text-slate-400">
-                <a href="/" className="hover:text-white transition-colors">Home</a>
-                <a href="/donate" className="hover:text-white transition-colors">Donate</a>
-                <a href="/dashboard" className="hover:text-white transition-colors">Dashboard</a>
+              <nav className="flex gap-6 text-sm text-slate-500">
+                <a href="/" className="hover:text-slate-900 transition-colors">Home</a>
+                <a href="/donate" className="hover:text-slate-900 transition-colors">Donate</a>
+                <a href="/dashboard" className="hover:text-slate-900 transition-colors">Dashboard</a>
               </nav>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-slate-400">
                 © {new Date().getFullYear()} Digital Heroes. All rights reserved.
               </p>
             </div>

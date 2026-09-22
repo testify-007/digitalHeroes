@@ -58,7 +58,7 @@ export default async function DashboardPage() {
             <h1 className="text-3xl font-black gradient-text">
               Welcome back{profile?.full_name ? `, ${profile.full_name.split(' ')[0]}` : ''}
             </h1>
-            <p className="text-slate-400 mt-1">Your performance and impact hub</p>
+            <p className="text-slate-600 mt-1">Your performance and impact hub</p>
           </div>
           {!isActive && (
             <a href="/api/subscribe" className="btn-prize text-sm">
@@ -85,7 +85,7 @@ export default async function DashboardPage() {
           <div className="lg:col-span-2 flex flex-col gap-6">
             {/* Score entry */}
             <div className="glass p-6">
-              <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-brand-500" />
                 Log a Score
               </h2>
@@ -101,7 +101,7 @@ export default async function DashboardPage() {
 
             {/* Recent scores */}
             <div className="glass p-6">
-              <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <h2 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-impact-500" />
                 Recent Scores
               </h2>

@@ -36,23 +36,23 @@ export default function WinnersPanel({ winners }: Props) {
 
   return (
     <div className="glass p-6">
-      <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">
+      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">
         Winners Verification ({winners.length})
       </h3>
 
       {winners.length === 0 ? (
-        <p className="text-center text-slate-600 py-12 text-sm">No pending winners to verify.</p>
+        <p className="text-center text-slate-500 py-12 text-sm">No pending winners to verify.</p>
       ) : (
         <div className="space-y-4">
           {winners.map(w => (
-            <div key={w.id} className="p-5 rounded-xl bg-white/5 border border-white/10 space-y-4">
+            <div key={w.id} className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-4">
               {/* Header */}
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="font-bold text-white">
+                  <p className="font-bold text-slate-900">
                     {w.profile?.full_name ?? w.profile?.email ?? 'Unknown user'}
                   </p>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-600">
                     {w.draw ? fmt(w.draw.draw_month) : ''} · {TIER_LABELS[w.tier] ?? w.tier}
                   </p>
                 </div>
@@ -63,8 +63,8 @@ export default function WinnersPanel({ winners }: Props) {
 
               {/* Proof */}
               {w.proof_upload_url && (
-                <div className="bg-white/5 rounded-xl p-3 flex items-center justify-between gap-3">
-                  <p className="text-sm text-slate-300 truncate">{w.proof_upload_url.split('/').pop()}</p>
+                <div className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between gap-3">
+                  <p className="text-sm text-slate-600 truncate">{w.proof_upload_url.split('/').pop()}</p>
                   <a
                     href={w.proof_upload_url} target="_blank" rel="noopener noreferrer"
                     className="btn-secondary !px-3 !py-1.5 !text-xs flex-shrink-0"

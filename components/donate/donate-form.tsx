@@ -107,10 +107,10 @@ function PaymentForm({
   return (
     <form onSubmit={handlePay} className="space-y-5">
       {/* Amount summary */}
-      <div className="bg-white/5 rounded-xl p-4 flex items-center justify-between">
+      <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between">
         <div>
           <p className="text-xs text-slate-500 uppercase tracking-widest">Donating to</p>
-          <p className="text-white font-semibold">{charityName}</p>
+          <p className="text-slate-900 font-semibold">{charityName}</p>
         </div>
         <p className="text-2xl font-black gradient-text-prize">£{amount.toFixed(2)}</p>
       </div>
@@ -290,14 +290,14 @@ export default function DonateForm({ charities, preselectedId }: Props) {
               onClick={() => setCharityId(c.id)}
               className={`w-full flex items-center gap-3 p-3 rounded-xl border text-left transition-all ${
                 charityId === c.id
-                  ? 'bg-impact-500/15 border-impact-500/40 text-white'
-                  : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
+                  ? 'bg-impact-50 border-impact-200 text-impact-900'
+                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
               }`}
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
                 {c.logo_url
                   ? <img src={c.logo_url} alt={c.name} className="w-full h-full object-cover rounded-xl" />
-                  : <span className="text-xs font-black text-white/60">{c.name.slice(0, 2).toUpperCase()}</span>
+                  : <span className="text-xs font-black text-slate-400">{c.name.slice(0, 2).toUpperCase()}</span>
                 }
               </div>
               <div className="min-w-0 flex-1">
@@ -326,8 +326,8 @@ export default function DonateForm({ charities, preselectedId }: Props) {
               onClick={() => { setAmount(a); setCustom('') }}
               className={`py-3 rounded-xl border text-sm font-bold transition-all ${
                 amount === a && !custom
-                  ? 'bg-brand-600/30 border-brand-500/50 text-brand-400'
-                  : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                  ? 'bg-brand-100 border-brand-300 text-brand-900'
+                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
               }`}
             >
               £{a}

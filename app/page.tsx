@@ -41,10 +41,10 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-hero-mesh pointer-events-none" />
         {/* Floating orb — top right */}
         <div className="absolute top-24 right-0 w-[600px] h-[600px] rounded-full
-                        bg-brand-600/10 blur-[120px] pointer-events-none animate-pulse-glow" />
+                        bg-brand-500/20 blur-[120px] pointer-events-none animate-pulse-glow" />
         {/* Floating orb — bottom left */}
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full
-                        bg-impact-500/8 blur-[100px] pointer-events-none" />
+                        bg-impact-500/20 blur-[100px] pointer-events-none" />
 
         <div className="section relative z-10 py-24">
           <div className="max-w-4xl">
@@ -63,7 +63,7 @@ export default async function HomePage() {
               Their Future
             </h1>
 
-            <p className="text-xl text-slate-300 max-w-2xl mb-10 leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-2xl mb-10 leading-relaxed">
               Digital Heroes unites golfers with purpose — track your Stableford scores,
               enter guaranteed monthly prize draws, and direct your subscription to
               the charities that move you most.
@@ -81,7 +81,7 @@ export default async function HomePage() {
             </div>
 
             {/* Impact stat bar */}
-            <div className="grid grid-cols-3 gap-6 sm:gap-10 pt-8 border-t border-white/10 max-w-lg">
+            <div className="grid grid-cols-3 gap-6 sm:gap-10 pt-8 border-t border-slate-200 max-w-lg">
               {[
                 { value: '£24k+', label: 'Raised for charity' },
                 { value: '12',    label: 'Partner charities' },
@@ -98,8 +98,8 @@ export default async function HomePage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-white/40 rounded-full animate-bounce" />
+          <div className="w-6 h-10 rounded-full border-2 border-slate-300 flex justify-center pt-2">
+            <div className="w-1.5 h-3 bg-brand-400 rounded-full animate-bounce" />
           </div>
         </div>
       </section>
@@ -110,7 +110,7 @@ export default async function HomePage() {
           <div className="text-center mb-16">
             <p className="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">The Loop</p>
             <h2 className="text-4xl font-black gradient-text mb-4">How Digital Heroes Works</h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
+            <p className="text-slate-500 max-w-xl mx-auto">
               Four simple steps connect your game to global good.
             </p>
           </div>
@@ -127,7 +127,7 @@ export default async function HomePage() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-prize-500/60 to-transparent" />
               <p className="text-prize-400 font-semibold text-sm uppercase tracking-widest mb-3">Latest Prize Pool</p>
               <p className="text-6xl font-black gradient-text-prize mb-4">£{totalPool}</p>
-              <p className="text-slate-400 mb-8">
+              <p className="text-slate-500 mb-8">
                 Split across three prize tiers — 40% · 35% · 25%
                 {pool.tier_5match_rollover && (
                   <span className="ml-2 px-2.5 py-0.5 rounded-full bg-prize-500/20 text-prize-400 text-xs font-semibold border border-prize-500/30">
@@ -152,7 +152,7 @@ export default async function HomePage() {
                 <p className="text-impact-400 font-semibold text-sm uppercase tracking-widest mb-3">Impact Partners</p>
                 <h2 className="text-4xl font-black gradient-text">Our Charity Partners</h2>
               </div>
-              <Link href="/donate" className="hidden sm:block text-sm text-slate-400 hover:text-white transition-colors">
+              <Link href="/donate" className="hidden sm:block text-sm text-slate-500 hover:text-slate-900 transition-colors">
                 Donate directly →
               </Link>
             </div>
@@ -169,12 +169,12 @@ export default async function HomePage() {
       <section className="py-24">
         <div className="section">
           <div className="relative rounded-3xl overflow-hidden glass p-12 md:p-20 text-center">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-900/40 via-transparent to-impact-600/10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-100/50 via-transparent to-impact-100/50" />
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl font-black gradient-text mb-6">
                 Ready to play with purpose?
               </h2>
-              <p className="text-slate-300 text-lg max-w-xl mx-auto mb-10">
+              <p className="text-slate-600 text-lg max-w-xl mx-auto mb-10">
                 Join hundreds of members who track their game, win monthly prizes,
                 and fund real change for the charities they love.
               </p>

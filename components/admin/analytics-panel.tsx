@@ -34,7 +34,7 @@ export default function AnalyticsPanel({ analytics, draws }: Props) {
 
       {/* Recent draws table */}
       <div className="glass p-6">
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Draw History</h3>
+        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Draw History</h3>
         <div className="overflow-x-auto">
           <table className="data-table">
             <thead>
@@ -49,7 +49,7 @@ export default function AnalyticsPanel({ analytics, draws }: Props) {
             <tbody>
               {draws.map(d => (
                 <tr key={d.id}>
-                  <td className="text-white font-medium">
+                  <td className="text-slate-900 font-medium">
                     {new Date(d.draw_month).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                   </td>
                   <td>

@@ -29,7 +29,7 @@ export default function AdminPanel({ analytics, draws, charities, pendingWinners
   return (
     <div>
       {/* Tab bar */}
-      <div className="flex gap-1 p-1 bg-white/5 rounded-2xl border border-white/10 mb-8 overflow-x-auto">
+      <div className="flex gap-1 p-1 bg-slate-100 rounded-2xl border border-slate-200 mb-8 overflow-x-auto">
         {TABS.map(tab => (
           <button
             key={tab.id}
@@ -38,7 +38,7 @@ export default function AdminPanel({ analytics, draws, charities, pendingWinners
                         text-sm font-semibold transition-all duration-200 ${
               active === tab.id
                 ? 'bg-brand-600 text-white shadow-glow-indigo'
-                : 'text-slate-400 hover:text-white hover:bg-white/5'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
             }`}
           >
             <span>{tab.icon}</span>

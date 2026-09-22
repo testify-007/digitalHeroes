@@ -15,13 +15,13 @@ export default function CharityCard({ charity }: { charity: Charity }) {
     <div className="glass-hover p-6 flex flex-col gap-4 group">
       {/* Logo / initials */}
       <div className="flex items-start justify-between">
-        <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/15
+        <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200
                         flex items-center justify-center overflow-hidden flex-shrink-0">
           {charity.logo_url ? (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img src={charity.logo_url} alt={charity.name} className="w-full h-full object-cover" />
           ) : (
-            <span className="text-xl font-black text-white/60">
+            <span className="text-xl font-black text-slate-400">
               {charity.name.slice(0, 2).toUpperCase()}
             </span>
           )}
@@ -36,11 +36,11 @@ export default function CharityCard({ charity }: { charity: Charity }) {
 
       {/* Name + description */}
       <div>
-        <h3 className="font-bold text-white text-lg group-hover:text-brand-400 transition-colors">
+        <h3 className="font-bold text-slate-900 text-lg group-hover:text-brand-600 transition-colors">
           {charity.name}
         </h3>
         {charity.description && (
-          <p className="text-slate-400 text-sm mt-1 line-clamp-3 leading-relaxed">
+          <p className="text-slate-600 text-sm mt-1 line-clamp-3 leading-relaxed">
             {charity.description}
           </p>
         )}
@@ -48,9 +48,9 @@ export default function CharityCard({ charity }: { charity: Charity }) {
 
       {/* Next event */}
       {nextEvent && (
-        <div className="mt-auto pt-4 border-t border-white/10">
+        <div className="mt-auto pt-4 border-t border-slate-200">
           <p className="text-xs text-slate-500 uppercase tracking-widest font-medium mb-1">Next event</p>
-          <p className="text-sm text-slate-300 font-medium">{nextEvent.title}</p>
+          <p className="text-sm text-slate-700 font-medium">{nextEvent.title}</p>
           <p className="text-xs text-slate-500">
             {new Date(nextEvent.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
             {nextEvent.location && ` · ${nextEvent.location}`}

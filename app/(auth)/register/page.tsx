@@ -38,15 +38,15 @@ export default function RegisterPage() {
     <div className="min-h-screen flex items-center justify-center px-4 pt-16">
       <div className="fixed inset-0 bg-hero-mesh pointer-events-none" />
       <div className="relative z-10 glass p-10 max-w-md w-full text-center shadow-card">
-        <div className="w-16 h-16 rounded-full bg-impact-500/20 border border-impact-500/30
+        <div className="w-16 h-16 rounded-full bg-impact-100 border border-impact-200
                         flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-impact-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-8 h-8 text-impact-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 className="text-2xl font-black text-white mb-2">You&apos;re in!</h2>
-        <p className="text-slate-400 mb-6">
-          Check your email at <strong className="text-white">{email}</strong> to confirm your account, then subscribe to unlock draws and score tracking.
+        <h2 className="text-2xl font-black text-slate-900 mb-2">You&apos;re in!</h2>
+        <p className="text-slate-600 mb-6">
+          Check your email at <strong className="text-slate-900">{email}</strong> to confirm your account, then subscribe to unlock draws and score tracking.
         </p>
         <Link href="/login" className="btn-primary justify-center">Go to sign in</Link>
       </div>
@@ -59,12 +59,12 @@ export default function RegisterPage() {
       <div className="relative z-10 w-full max-w-md">
         <div className="glass p-8 shadow-card">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-impact-500
                             flex items-center justify-center text-white font-black mx-auto mb-4">
               DH
             </div>
-            <h1 className="text-2xl font-black text-white">Create your account</h1>
-            <p className="text-slate-400 text-sm mt-1">Start your Digital Heroes journey</p>
+            <h1 className="text-2xl font-black text-slate-900">Create your account</h1>
+            <p className="text-slate-600 text-sm mt-1">Start your Digital Heroes journey</p>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-5">
@@ -115,7 +115,7 @@ export default function RegisterPage() {
 
           <p className="text-center text-sm text-slate-500 mt-6">
             Already a member?{' '}
-            <Link href="/login" className="text-brand-400 hover:text-brand-300 font-medium transition-colors">
+            <Link href="/login" className="text-brand-400 hover:text-brand-600 font-medium transition-colors">
               Sign in
             </Link>
           </p>

@@ -62,12 +62,12 @@ export default function LoginPage() {
         {/* Card */}
         <div className="glass p-8 shadow-card">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-purple-600
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-impact-500
                             flex items-center justify-center text-white font-black mx-auto mb-4">
               DH
             </div>
-            <h1 className="text-2xl font-black text-white">Welcome back</h1>
-            <p className="text-slate-400 text-sm mt-1">Sign in to your Digital Heroes account</p>
+            <h1 className="text-2xl font-black text-slate-900">Welcome back</h1>
+            <p className="text-slate-600 text-sm mt-1">Sign in to your Digital Heroes account</p>
           </div>
 
           {magicSent ? (
@@ -78,8 +78,8 @@ export default function LoginPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h2 className="font-bold text-white text-lg mb-2">Check your inbox</h2>
-              <p className="text-slate-400 text-sm">We sent a magic link to <strong className="text-white">{email}</strong>. Click it to sign in.</p>
+              <h2 className="font-bold text-slate-900 text-lg mb-2">Check your inbox</h2>
+              <p className="text-slate-600 text-sm">We sent a magic link to <strong className="text-slate-900">{email}</strong>. Click it to sign in.</p>
             </div>
           ) : (
             <form onSubmit={handlePassword} className="space-y-5">
@@ -115,9 +115,9 @@ export default function LoginPage() {
               </button>
 
               <div className="relative flex items-center">
-                <div className="flex-1 border-t border-white/10" />
+                <div className="flex-1 border-t border-slate-200" />
                 <span className="px-3 text-xs text-slate-500">or</span>
-                <div className="flex-1 border-t border-white/10" />
+                <div className="flex-1 border-t border-slate-200" />
               </div>
 
               <button
@@ -131,7 +131,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-slate-500 mt-6">
             No account?{' '}
-            <Link href="/register" className="text-brand-400 hover:text-brand-300 font-medium transition-colors">
+            <Link href="/register" className="text-brand-400 hover:text-brand-600 font-medium transition-colors">
               Create one free
             </Link>
           </p>

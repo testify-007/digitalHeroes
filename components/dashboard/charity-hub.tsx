@@ -45,21 +45,21 @@ export default function CharityHub({ contribution, charities, userId, isActive }
   return (
     <>
       <div className="glass p-6">
-        <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Charity Hub</h2>
+        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Charity Hub</h2>
 
         {current ? (
           <div className="space-y-4">
             {/* Current charity */}
-            <div className="bg-white/5 rounded-xl p-4 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0">
+            <div className="bg-slate-50 rounded-xl p-4 flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
                 {current.logo_url
                   ? <img src={current.logo_url} alt={current.name} className="w-full h-full object-cover rounded-xl" />
-                  : <span className="text-sm font-black text-white/60">{current.name.slice(0,2).toUpperCase()}</span>
+                  : <span className="text-sm font-black text-slate-400">{current.name.slice(0,2).toUpperCase()}</span>
                 }
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-white truncate">{current.name}</p>
-                <p className="text-xs text-slate-500">
+                <p className="font-semibold text-slate-900 truncate">{current.name}</p>
+                <p className="text-xs text-slate-600">
                   {contribution?.contribution_pct}% of your subscription
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function CharityHub({ contribution, charities, userId, isActive }
           </div>
         ) : (
           <div className="space-y-4">
-            <p className="text-sm text-slate-400">You haven&apos;t selected a charity yet.</p>
+            <p className="text-sm text-slate-500">You haven&apos;t selected a charity yet.</p>
             {isActive && (
               <button onClick={() => setShowModal(true)} className="btn-primary w-full justify-center !text-sm">
                 Choose your charity
@@ -97,7 +97,7 @@ export default function CharityHub({ contribution, charities, userId, isActive }
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowModal(false)} />
           <div className="relative z-10 glass p-6 w-full max-w-md shadow-card">
-            <h3 className="text-lg font-bold text-white mb-4">Select Charity & Contribution</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-4">Select Charity & Contribution</h3>
 
             {error && (
               <div className="mb-4 px-4 py-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm">
@@ -113,14 +113,14 @@ export default function CharityHub({ contribution, charities, userId, isActive }
                   onClick={() => setSelectedId(c.id)}
                   className={`w-full flex items-center gap-3 p-3 rounded-xl border transition-all ${
                     selectedId === c.id
-                      ? 'bg-brand-600/20 border-brand-500/50 text-white'
-                      : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10'
+                      ? 'bg-brand-50 border-brand-200 text-brand-900'
+                      : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                   }`}
                 >
-                  <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0">
                     {c.logo_url
                       ? <img src={c.logo_url} alt={c.name} className="w-full h-full object-cover rounded-lg" />
-                      : <span className="text-xs font-black text-white/60">{c.name.slice(0,2).toUpperCase()}</span>
+                      : <span className="text-xs font-black text-slate-400">{c.name.slice(0,2).toUpperCase()}</span>
                     }
                   </div>
                   <span className="text-sm font-medium text-left">{c.name}</span>

@@ -11,7 +11,7 @@ export default function SubscriptionPanel({ subscription }: { subscription: Subs
 
   return (
     <div className="glass p-6">
-      <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Subscription</h2>
+      <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Subscription</h2>
 
       {subscription ? (
         <div className="space-y-4">
@@ -20,16 +20,16 @@ export default function SubscriptionPanel({ subscription }: { subscription: Subs
               <span className="w-1.5 h-1.5 rounded-full bg-impact-400 animate-pulse" />
               Active
             </span>
-            <span className="text-sm text-slate-400 capitalize">{subscription.plan_type} plan</span>
+            <span className="text-sm text-slate-600 capitalize">{subscription.plan_type} plan</span>
           </div>
 
-          <div className="bg-white/5 rounded-xl p-4 space-y-2">
+          <div className="bg-slate-50 rounded-xl p-4 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-slate-500">Renews</span>
-              <span className="text-white font-medium">{fmt(subscription.current_period_end)}</span>
+              <span className="text-slate-600">Renews</span>
+              <span className="text-slate-900 font-medium">{fmt(subscription.current_period_end)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-slate-500">Status</span>
+              <span className="text-slate-600">Status</span>
               <span className="text-impact-400 font-medium capitalize">{subscription.status}</span>
             </div>
           </div>
@@ -43,7 +43,7 @@ export default function SubscriptionPanel({ subscription }: { subscription: Subs
           <div className="flex items-center gap-3">
             <span className="badge-inactive">Inactive</span>
           </div>
-          <p className="text-sm text-slate-400 leading-relaxed">
+          <p className="text-sm text-slate-600 leading-relaxed">
             You need an active subscription to log scores, enter draws, and support charities.
           </p>
           <a

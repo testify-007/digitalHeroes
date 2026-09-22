@@ -6,7 +6,7 @@ export default function UsersPanel({ profiles }: Props) {
 
   return (
     <div className="glass p-6">
-      <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">
+      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">
         Members ({profiles.length})
       </h3>
       <div className="overflow-x-auto">
@@ -25,8 +25,8 @@ export default function UsersPanel({ profiles }: Props) {
               const sub = Array.isArray(p.subscription) ? p.subscription[0] : p.subscription
               return (
                 <tr key={p.id}>
-                  <td className="text-white font-medium">{p.full_name ?? '—'}</td>
-                  <td className="text-slate-400">{p.email ?? '—'}</td>
+                  <td className="text-slate-900 font-medium">{p.full_name ?? '—'}</td>
+                  <td className="text-slate-600">{p.email ?? '—'}</td>
                   <td>
                     {p.user_role === 'admin'
                       ? <span className="badge-lapsed">Admin</span>
@@ -41,7 +41,7 @@ export default function UsersPanel({ profiles }: Props) {
                       : <span className="badge-inactive">None</span>
                     }
                   </td>
-                  <td className="text-slate-500">{fmt(p.created_at)}</td>
+                  <td className="text-slate-600">{fmt(p.created_at)}</td>
                 </tr>
               )
             })}

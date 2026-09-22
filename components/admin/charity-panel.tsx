@@ -60,7 +60,7 @@ export default function CharityPanel({ charities }: Props) {
 
       {/* Form */}
       <div className="glass p-6">
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">
+        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">
           {editId ? 'Edit Charity' : 'Add New Charity'}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -85,7 +85,7 @@ export default function CharityPanel({ charities }: Props) {
               checked={form.is_published} onChange={e => set('is_published', e.target.checked)}
               className="w-4 h-4 rounded border-slate-600 bg-slate-800 text-brand-500 focus:ring-brand-500"
             />
-            <label htmlFor="is_published" className="text-sm text-slate-300">Published (visible to public)</label>
+            <label htmlFor="is_published" className="text-sm text-slate-600">Published (visible to public)</label>
           </div>
         </div>
         <div className="flex gap-3">
@@ -102,19 +102,19 @@ export default function CharityPanel({ charities }: Props) {
 
       {/* Charity list */}
       <div className="glass p-6">
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">All Charities</h3>
+        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">All Charities</h3>
         <div className="space-y-3">
           {charities.map(c => (
-            <div key={c.id} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/8">
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+            <div key={c.id} className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
                 {c.logo_url
                   ? <img src={c.logo_url} alt={c.name} className="w-full h-full object-cover rounded-xl" />
-                  : <span className="text-xs font-black text-white/60">{c.name.slice(0,2).toUpperCase()}</span>
+                  : <span className="text-xs font-black text-slate-400">{c.name.slice(0,2).toUpperCase()}</span>
                 }
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-white truncate">{c.name}</p>
-                <p className="text-xs text-slate-500 truncate">{c.description ?? '—'}</p>
+                <p className="font-medium text-slate-900 truncate">{c.name}</p>
+                <p className="text-xs text-slate-600 truncate">{c.description ?? '—'}</p>
               </div>
               <div className="flex items-center gap-3">
                 {c.is_published

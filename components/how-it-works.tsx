@@ -62,11 +62,11 @@ export default function HowItWorks() {
         <div
           key={s.step}
           className="glass group p-6 flex flex-col gap-4 transition-all duration-300
-                     hover:-translate-y-2 hover:border-white/20 cursor-default"
+                     hover:-translate-y-2 hover:border-slate-300 cursor-default"
           style={{ animationDelay: `${i * 120}ms` }}
         >
           {/* Step number */}
-          <p className="text-xs font-bold text-slate-600 tracking-widest">{s.step}</p>
+          <p className="text-xs font-bold text-slate-400 tracking-widest">{s.step}</p>
 
           {/* Icon */}
           <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color}
@@ -77,8 +77,8 @@ export default function HowItWorks() {
 
           {/* Text */}
           <div>
-            <h3 className="font-bold text-white text-lg mb-2">{s.title}</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+            <h3 className="font-bold text-slate-900 text-lg mb-2">{s.title}</h3>
+            <p className="text-slate-600 text-sm leading-relaxed">{s.desc}</p>
           </div>
         </div>
       ))}

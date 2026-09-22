@@ -63,7 +63,7 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-card'
+          ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -76,7 +76,7 @@ export default function Navigation() {
                             shadow-glow-indigo group-hover:scale-105 transition-transform duration-200">
               DH
             </div>
-            <span className="font-bold text-white text-lg hidden sm:block">
+            <span className="font-bold text-slate-900 text-lg hidden sm:block">
               Digital <span className="gradient-text-brand">Heroes</span>
             </span>
           </Link>
@@ -92,8 +92,8 @@ export default function Navigation() {
                   href={link.href}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ${
                     active
-                      ? 'bg-white/10 text-white'
-                      : 'text-slate-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-slate-100 text-slate-900'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                   }`}
                 >
                   {link.label}
@@ -106,7 +106,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-3">
             {user ? (
               <div className="flex items-center gap-3">
-                <span className="text-sm text-slate-400 max-w-[160px] truncate">
+                <span className="text-sm text-slate-600 max-w-[160px] truncate">
                   {user.email}
                 </span>
                 <button
@@ -131,7 +131,7 @@ export default function Navigation() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="md:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
             aria-label="Toggle menu"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +146,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-200 shadow-sm">
           <div className="section py-4 flex flex-col gap-2">
             {navLinks.map(link => {
               if (link.auth && !user) return null
@@ -155,13 +155,13 @@ export default function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="px-4 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                  className="px-4 py-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
                 >
                   {link.label}
                 </Link>
               )
             })}
-            <div className="flex gap-3 pt-2 border-t border-white/10 mt-2">
+            <div className="flex gap-3 pt-2 border-t border-slate-200 mt-2">
               {user ? (
                 <button onClick={handleSignOut} className="btn-secondary !text-sm flex-1">
                   Sign out

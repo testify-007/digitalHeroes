@@ -68,7 +68,7 @@ export default function DrawPanel({ draws }: Props) {
 
       {/* Create new draw */}
       <div className="glass p-6">
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Create New Draw</h3>
+        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Create New Draw</h3>
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <label className="label">Draw Month</label>
@@ -98,7 +98,7 @@ export default function DrawPanel({ draws }: Props) {
 
       {/* Run engine */}
       <div className="glass p-6">
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Run Draw Engine</h3>
+        <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest mb-4">Run Draw Engine</h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
@@ -124,7 +124,7 @@ export default function DrawPanel({ draws }: Props) {
                       ? m === 'publish'
                         ? 'bg-impact-600/30 border-impact-500/50 text-impact-400'
                         : 'bg-brand-600/30 border-brand-500/50 text-brand-400'
-                      : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                      : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                   }`}
                 >
                   {m}
@@ -156,7 +156,7 @@ export default function DrawPanel({ draws }: Props) {
         {draw?.admin_notes && (
           <div className="mt-6">
             <p className="label mb-2">Simulation Log</p>
-            <pre className="bg-slate-900 rounded-xl p-4 text-xs text-slate-300 overflow-x-auto whitespace-pre-wrap max-h-48 border border-white/10">
+            <pre className="bg-slate-50 rounded-xl p-4 text-xs text-slate-700 overflow-x-auto whitespace-pre-wrap max-h-48 border border-slate-200">
               {draw.admin_notes}
             </pre>
           </div>

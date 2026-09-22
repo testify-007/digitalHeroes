@@ -39,7 +39,7 @@ export default async function DonatePage({ searchParams }: Props) {
               </svg>
             </div>
             <h1 className="text-4xl font-black gradient-text mb-3">Make a Donation</h1>
-            <p className="text-slate-400 text-lg">
+            <p className="text-slate-600 text-lg">
               No subscription needed. Give directly to the causes you care about.
             </p>
           </div>

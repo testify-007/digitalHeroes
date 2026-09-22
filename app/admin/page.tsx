@@ -57,7 +57,7 @@ export default async function AdminPage() {
               Admin
             </div>
             <h1 className="text-3xl font-black gradient-text">Control Centre</h1>
-            <p className="text-slate-400 mt-1">Manage draws, charities, users, and winners</p>
+            <p className="text-slate-600 mt-1">Manage draws, charities, users, and winners</p>
           </div>
         </div>
 
